@@ -1,10 +1,10 @@
-from cvzone.HandTrackingModule import HandDetector
 import cv2
+from cvzone.HandTrackingModule import HandDetector
 import socket
 
 cap = cv2.VideoCapture(0)
-cap.set(3, 1280)
-cap.set(4, 720)
+cap.set(3, 640)
+cap.set(4, 480)
 success, img = cap.read()
 h, w, _ = img.shape
 detector = HandDetector(detectionCon=0.8, maxHands=2)
@@ -19,6 +19,7 @@ while True:
     hands, img = detector.findHands(img)  # with draw
     # hands = detector.findHands(img, draw=False)  # without draw
     data = []
+    cv2.imshow("Image", img)
 
     if hands:
         # Hand 1
