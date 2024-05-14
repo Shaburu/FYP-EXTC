@@ -11,7 +11,7 @@ keyboard = Controller()
 while True:
     _, img = cap.read()
     hands, img = detector.findHands(img)
-
+    
     if hands:
         finger = detector.fingersUp(hands[0])
         if finger == [0,0,0,0,0]:
@@ -52,5 +52,3 @@ while True:
     cv2.imshow("left right", img)
     if cv2.waitKey(1) == ord ("q"):
         break
-
-    
